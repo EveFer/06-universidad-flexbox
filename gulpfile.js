@@ -2,6 +2,8 @@ const gulp = require('gulp')
 const sass = require('gulp-sass')
 const autoprefixer = require('gulp-autoprefixer')
 
+// gulp trabaja con tareas por medio de funciones
+
 function css() {
     return gulp 
         .src('scss/app.scss')

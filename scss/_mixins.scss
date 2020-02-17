@@ -1,0 +1,65 @@
+/*Botones*/
+@mixin boton($color) {
+    background-color: $color;
+    padding: .5rem 1rem;
+    margin-top: 1rem;
+    /* como el boton es un enlace 'a' por defecto su display: inline para poder manipularlo hay que colocarle un display:block*/
+    display: block; 
+    text-align: center;
+    color: $blanco;
+    text-decoration: none;
+}
+
+@mixin box-sizing($box-model) {
+    box-sizing: $box-model;
+}
+
+@mixin background-image($image) {
+    background-image: url($image);
+    background-repeat: no-repeat; /*Para que no se repita la imagen*/
+    background-position: center center;
+}
+
+@mixin gradiente($color1, $color2) {
+    background: linear-gradient(to right, $color1 0%, $color2 100%);
+}
+
+/*Media Queries*/
+@mixin telefono {
+    /*Enfoque de mobile-firts --> 'min-width' */
+    @media only screen and (min-width: #{$mobile}){
+        @content;
+    }
+}
+
+@mixin tablet {
+    /*Enfoque de mobile-firts --> 'min-width' */
+    /*Es decir que min-width, significa que apartir de 
+    una medida en adelante ejecute el media query*/
+    @media only screen and (min-width: #{$tablet}){
+        @content;
+    }
+}
+
+@mixin desktop {
+    /*Enfoque de mobile-firts --> 'min-width' */
+    @media only screen and (min-width: #{$desktop}){
+        @content;
+    }
+}
+
+/*Menus de navegacion*/
+@mixin menus() {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    flex: 1;
+    @include desktop() {
+        flex: 0 1 calc(30% - 1rem);
+    }
+    a {
+        color: $negro;
+        text-decoration: none;
+        margin-bottom: .5rem;
+    }
+}
